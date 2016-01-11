@@ -1,0 +1,93 @@
+[general]
+
+accounts = Gmail-Pers,MTU
+pythonfile = ~/.mutt/bin/offlineimap.py
+
+#Stuff for Account 1
+[Account Gmail-Pers]
+localrepository = GmailP-Local
+remoterepository = GmailP-Remote
+postsynchook = notmuch new
+
+[Repository GmailP-Local]
+type = Maildir
+localfolders = ~/mail/gmail-pers/
+sep = /
+nametrans = lambda folder: {'drafts':   '[Gmail]/Drafts',
+                            'sent':     '[Gmail]/Sent Mail',
+                            'important':'[Gmail]/Important',
+                            'spam':     '[Gmail]/Spam',
+                            'starred':  '[Gmail]/Starred',
+                            'trash':    '[Gmail]/Trash',
+                            'archive':  '[Gmail]/All Mail',
+                            }.get(folder, folder)
+
+[Repository GmailP-Remote]
+type = Gmail
+remoteuser = username@gmail.com
+remotepasseval = get_pass_gp()
+realdelete = no
+maxconnections = 2
+folderfilter = lambda folder: folder not in ['[Gmail]/All Mail',
+                                             '[Gmail]/Important',
+                                             '[Gmail]/Starred',
+                                             ]
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
+                            '[Gmail]/Sent Mail': 'sent',
+                            '[Gmail]/Starred':   'flagged',
+                            '[Gmail]/Important':   'important',
+                            '[Gmail]/Spam':   'spam',
+                            '[Gmail]/Trash':     'trash',
+                            '[Gmail]/All Mail':  'archive',
+                            }.get(folder, folder)
+#Stuff for Account 2
+[Account MTU]
+localrepository = MTU-Local
+remoterepository = MTU-Remote
+postsynchook = notmuch new
+
+[Repository MTU-Local]
+type = Maildir
+localfolders = ~/mail/mtu
+sep = /
+nametrans = lambda folder: {'drafts':   '[Gmail]/Drafts',
+                            'sent':     '[Gmail]/Sent Mail',
+                            'important':'[Gmail]/Important',
+                            'spam':     '[Gmail]/Spam',
+                            'starred':  '[Gmail]/Starred',
+                            'trash':    '[Gmail]/Trash',
+                            'archive':  '[Gmail]/All Mail',
+                            }.get(folder, folder)
+
+
+[Repository MTU-Remote]
+type = Gmail
+remoteuser = username2@gmail.com
+remotepasseval = get_pass_mtu()
+realdelete = no
+maxconnections = 2
+folderfilter = lambda folder: folder not in ['[Gmail]/All Mail',
+                                             '[Gmail]/Important',
+                                             '[Gmail]/Starred',
+                                             ]
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
+                            '[Gmail]/Sent Mail': 'sent',
+                            '[Gmail]/Starred':   'flagged',
+                            '[Gmail]/Important':   'important',
+                            '[Gmail]/Spam':   'spam',
+                            '[Gmail]/Trash':     'trash',
+                            '[Gmail]/All Mail':  'archive',
+                            }.get(folder, folder)
+
+
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"

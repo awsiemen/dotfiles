@@ -1,0 +1,14 @@
+set from      = "from-email-address-here"
+set sendmail  = "/usr/bin/msmtp -a gmail-pers"
+set mbox      = "+gmail-pers/archive"
+set postponed = "+gmail-pers/drafts"
+
+color status green default
+
+macro index D \
+    "<save-message>+gmail-pers/Trash<enter>" \
+    "move message to the trash"
+
+macro index S \
+    "<save-message>+gmail-pers/Spam<enter>"  \
+        "mark message as spam"
