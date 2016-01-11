@@ -1,0 +1,14 @@
+set from      = "email@gmail.com"
+set sendmail  = "/usr/bin/msmtp -a work"
+set mbox      = "+work/archive"
+set postponed = "+work/drafts"
+
+color status orange default
+
+macro index D \
+    "<save-message>+work/Trash<enter>" \
+    "move message to the trash"
+
+macro index S \
+    "<save-message>+work/Spam<enter>"  \
+        "mark message as spam"
