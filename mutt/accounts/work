@@ -3,7 +3,7 @@ set sendmail  = "/usr/bin/msmtp -a work"
 set mbox      = "+work/archive"
 set postponed = "+work/drafts"
 
-color status orange default
+color status red default
 
 macro index D \
     "<save-message>+work/Trash<enter>" \
