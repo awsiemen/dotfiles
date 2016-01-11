@@ -13,6 +13,7 @@ source ~/.mutt/accounts/gmail-pers
 #Set the hooks for changing accounts
 folder-hook gmail-pers/* source ~/.mutt/accounts/gmail-pers
 folder-hook mtu/*     source ~/.mutt/accounts/mtu
+folder-hook work/*     source ~/.mutt/accounts/work
 
 #Set IMAP options - unused in my case
 #set imap_user   = emailaddress@example.com
@@ -101,9 +102,8 @@ set sidebar_width=30
 # Visible at first, then change its value to yes
 set sidebar_visible=yes
 mailboxes +gmail-pers/INBOX \
-          +gmail-pers/SPAMM \
           +mtu/INBOX \
-          +mtu/Banks/Wells\ Fargo
+          +work/INBOX
 
 set sidebar_delim='|'
 # set sidebar_sort=yes

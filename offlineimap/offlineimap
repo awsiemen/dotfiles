@@ -1,6 +1,6 @@
 [general]
 
-accounts = Gmail-Pers,MTU
+accounts = Gmail-Pers,MTU,Work
 pythonfile = ~/.mutt/bin/offlineimap.py
 
 #Stuff for Account 1
