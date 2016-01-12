@@ -2,6 +2,7 @@ set from      = "from-email-address-here"
 set sendmail  = "/usr/bin/msmtp -a gmail-pers"
 set mbox      = "+gmail-pers/archive"
 set postponed = "+gmail-pers/drafts"
+set signature = ~/.mutt/signatures/gmail-pers
 
 color status green default
 

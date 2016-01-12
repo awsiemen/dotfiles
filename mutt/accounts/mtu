@@ -2,6 +2,7 @@ set from      = "email-address-here"
 set sendmail  = "/usr/bin/msmtp -a mtu"
 set mbox      = "+mtu/archive"
 set postponed = "+mtu/drafts"
+set signature = ~/.mutt/signatures/mtu
 
 color status cyan default
 

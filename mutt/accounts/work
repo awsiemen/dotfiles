@@ -2,6 +2,7 @@ set from      = "email@gmail.com"
 set sendmail  = "/usr/bin/msmtp -a work"
 set mbox      = "+work/archive"
 set postponed = "+work/drafts"
+set signature = ~/.mutt/signatures/work
 
 color status red default
 
