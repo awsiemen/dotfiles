@@ -1,4 +1,4 @@
-set from      = "email-address-here"
+source /home/andrew/dotfiles/rc/mtu.rc
 set sendmail  = "/usr/bin/msmtp -a mtu"
 set mbox      = "+mtu/archive"
 set postponed = "+mtu/drafts"

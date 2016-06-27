@@ -1,4 +1,4 @@
-set from      = "email@gmail.com"
+source /home/andrew/dotfiles/rc/work.rc
 set sendmail  = "/usr/bin/msmtp -a work"
 set mbox      = "+work/archive"
 set postponed = "+work/drafts"

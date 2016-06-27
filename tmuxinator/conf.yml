@@ -28,6 +28,7 @@ root: ~/
 # post: tmux -CC attach -t config
 
 windows:
+  - vim: vim
   - local:
   - remote:
   - work:

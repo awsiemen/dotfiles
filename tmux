@@ -40,7 +40,7 @@ setw -g window-status-fg cyan
 setw -g window-status-bg default
 setw -g window-status-attr dim
 setw -g window-status-current-fg green
-setw -g window-status-current-bg '#6c6c6c'
+setw -g window-status-current-bg red
 setw -g window-status-current-attr bright
 setw -g window-status-activity-bg magenta
 setw -g window-status-activity-fg colour0
@@ -67,3 +67,15 @@ setw -g monitor-activity on
 
 unbind C-f
 unbind x
+
+# List of plugins
+ set -g @plugin 'tmux-plugins/tpm'
+#set -g @plugin 'tmux-plugins/tmux-sensible'
+
+ # Other examples:
+ # set -g @plugin 'github_username/plugin_name'
+ # set -g @plugin 'git@github.com/user/plugin'
+ # set -g @plugin 'git@bitbucket.com/user/plugin'
+set -g @plugin 'tmux-plugins/tmux-battery'
+ # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+ run '~/.tmux/plugins/tpm/tpm'

@@ -6,7 +6,7 @@ set sendmail	= /usr/bin/msmtp
 
 #Set options for default mailbox - in my case my personal Gmail
 set spoolfile   = +gmail-pers/INBOX
-mailboxes       = +gmail-pers/INBOX
+#mailboxes       = +gmail-pers/INBOX
 set postponed	= +gmail-pers/[Gmail]/Drafts
 source ~/.mutt/accounts/gmail-pers
 
@@ -14,6 +14,7 @@ source ~/.mutt/accounts/gmail-pers
 folder-hook gmail-pers/* source ~/.mutt/accounts/gmail-pers
 folder-hook mtu/*     source ~/.mutt/accounts/mtu
 folder-hook work/*     source ~/.mutt/accounts/work
+folder-hook pers/*     source ~/.mutt/accounts/pers
 
 #Set IMAP options - unused in my case
 #set imap_user   = emailaddress@example.com
@@ -67,7 +68,7 @@ set pipe_decode          # strip headers and eval mimes when piping
 set thorough_search      # strip headers and eval mimes before searching
 
 # Set the Theme
-source ~/.mutt/themes/theme.muttrc
+source ~/.mutt/themes/solarized-dark-256-2.muttrc
 
 # Status Bar
 set status_chars  = " *%A"
@@ -101,9 +102,16 @@ set sidebar_width=30
  
 # Visible at first, then change its value to yes
 set sidebar_visible=yes
-mailboxes +gmail-pers/INBOX \
-          +mtu/INBOX \
-          +work/INBOX
+mailboxes +gmail-pers/------Gmail------ \
+	  +gmail-pers/INBOX \
+          +pers/------Personal------ \
+	  +pers/INBOX \
+          +mtu/------MTU------ \
+	  +mtu/INBOX \
+          +work/------Work------ \
+	  +work/INBOX \
+	  +work/JIRA \
+	  +work/'All Employees'
 
 set sidebar_delim='|'
 # set sidebar_sort=yes
@@ -122,8 +130,8 @@ macro pager b '<enter-command>toggle sidebar_visible<enter>'
 bind index B bounce-message
 
 # Sync mutt with offlineimap
-macro index o '<shell-escape>offlineimap -q<enter>'
-macro index O '<shell-escape>offlineimap<enter>'
+macro index o '<shell-escape>/home/andrew/scripts/offlineimap_notify.sh -o -q -u quiet<enter>'
+macro index O '<shell-escape>/home/andrew/scripts/offlineimap_notify.sh -o -u quiet<enter>'
 
 # Index Key Bindings
 bind index gg       first-entry
@@ -149,3 +157,8 @@ macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "ma
 macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
 macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 
+# Gmail-like archive
+macro index a "<enter-command>unset resolve<enter><enter-command>unset trash<enter><clear-flag>N<enter-command>set resolve<enter><delete-message>"
+macro pager a "<enter-command>unset resolve<enter><enter-command>unset trash<enter><clear-flag>N<enter-command>set resolve<enter><delete-message><enter>"
+
+macro index . "<enter-command>source /home/andrew/.mutt/muttrc<enter>"

@@ -53,7 +53,7 @@ plugins=(git colored-man-pages colorize ubuntu)
 
 # User configuration
 
-  export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+  export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -83,3 +83,13 @@ export LANG=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ssh_ms="ssh -F ~/.ssh/ms_config"
+alias firefox="/home/andrew/scripts/firefox"
+#alias javaws="/usr/local/java/jre1.8.0_73/bin/javaws"
+alias mux="tmuxinator"
+alias ssh="TERM=xterm-256color ssh"
+alias "sudo apt-get"='sudo apt'
+alias fucknm='sudo service network-manager restart'
+
+GPG_TTY=$(tty)
+export GPG_TTY

@@ -1,4 +1,5 @@
-set from      = "from-email-address-here"
+source /home/andrew/dotfiles/rc/gmail_pers.rc
+
 set sendmail  = "/usr/bin/msmtp -a gmail-pers"
 set mbox      = "+gmail-pers/archive"
 set postponed = "+gmail-pers/drafts"
