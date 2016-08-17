@@ -1,0 +1,6 @@
+Bundle 'gmarik/vundle'
+Bundle 'vimwiki/vimwiki'
+Bundle 'scrooloose/nerdtree'
+Bundle 'easymotion/vim-easymotion'
+Plugin 'vim-airline/vim-airline'
+Bundle 'jamessan/vim-gnupg'
